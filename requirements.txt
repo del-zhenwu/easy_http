@@ -1,0 +1,9 @@
+psutil
+redis
+Flask
+celery
+Flask_APScheduler
+APScheduler
+Flask_SocketIO
+requests
+pymongo

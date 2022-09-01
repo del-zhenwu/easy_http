@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+  新增监控组
+{% endblock %}
+
+{% block content %}
+  <div class="ui container">
+    <div class="center aligned column">
+      <h2>新增监控组</h2>
+
+      <h2 class="ui dividing header"></h2>
+
+      <form class="ui form group-add-form" style="display:block;">
+        <div class="group-add">
+          <div class="field">
+            <label>组名称：</label>
+            <input name="name" type="text">
+          </div>
+          <div class="field">
+            <label>组描述</label>
+            <input name="desc" type="text">
+          </div>
+          <div class="ui ignored info message">
+            <span>报警方式，邮件与回调选一</span>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>报警接收人列表（邮箱前缀，多人以英文逗号隔开）</label>
+              <input name="receivers" type="text">
+            </div>
+            <div class="field">
+              <label>报警回调URL</label>
+              <input name="callback_url" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="ui right teal submit button">提交</div>
+        <div class="group-add-form-msg ui error message"></div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

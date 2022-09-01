@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/PJLAB/lizhenxiang/work/easy_http_monitor/run_http_scanner.py", line 55, in <module>
+    configs = CoConfig().get_all()
+  File "/home/PJLAB/lizhenxiang/work/easy_http_monitor/db.py", line 16, in __init__
+    super(CoConfig, self).__init__(mdb, "co_config")
+  File "/home/PJLAB/lizhenxiang/work/easy_http_monitor/utils/mongo.py", line 41, in __init__
+    self.collection = mongoconn.table(table)
+  File "/home/PJLAB/lizhenxiang/work/easy_http_monitor/utils/mongo.py", line 25, in table
+    if not self.db:
+  File "/home/PJLAB/lizhenxiang/.local/lib/python3.7/site-packages/pymongo/database.py", line 1022, in __bool__
+    "Database objects do not implement truth "
+NotImplementedError: Database objects do not implement truth value testing or bool(). Please compare with None instead: database is not None

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}
+  监控组列表
+{% endblock %}
+
+{% block content %}
+  <div class="ui container">
+    <div class="ui breadcrumb">
+      <div class="section">Home</div>
+      <div class="divider"> / </div>
+      <div class="active section">监控组列表</div>
+    </div>
+
+    <div class="center aligned column">
+      <h2>
+      </h2>
+    </div>
+
+    <div class="center aligned column">
+
+      <table class="ui striped selectable celled structured table">
+        <thead>
+          <tr>
+            <th>组ID</th>
+            <th>组名称</th>
+            <th>组描述</th>
+            <th>邮件接收人列表</th>
+            <th>监控回调URL</th>
+            <th>创建时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for group in res %}
+          <tr>
+            <td class="group-id">{{ group.group_id }}</td>
+            <td class="group-name">{{ group.name }}</td>
+            <td class="group-desc">{{ group.desc }}</td>
+            <td class="group-receivers">{{ group.receivers }}</td>
+            <td class="group-callback-url">{{ group.callback_url }}</td>
+            <td class="group-ctime">{{ group.ctime }}</td>
+            <td>
+              <div class="op field" data-src="{{ group.name }}">
+                <a class="group-edit ui icon primary button" data-content="编辑">
+                  <i class="edit icon"></i></a>
+                <a class="group-invalid ui icon red button" data-content="无效">
+                  <i class="remove icon"></i></a>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <!-- 重新编辑modal -->
+  <div class="group-edit-modal ui long modal">
+
+    <div class="ui header">
+      <label>更新监控组</label>
+    </div>
+
+    <div class="ui content">
+      <form class="ui form group-update-form">
+        <div class="field">
+          <label>组名称</label>
+          <input id="group-name" name="group-name" type="text" disabled>
+        </div>
+        <div class="field">
+          <label>组描述</label>
+          <input id="group-desc" name="group-desc" type="text">
+        </div>
+        <div class="ui ignored info message">
+          <span>报警方式，邮件与回调选一</span>
+        </div>
+        <div class="field">
+          <label>报警接收人列表（邮箱，多人以英文逗号隔开）</label>
+          <input id="group-receivers" name="group-receivers" type="text">
+        </div>
+        <div class="field">
+          <label>监控回调URL</label>
+          <input id="group-callback-url" name="group-callback-url" type="text">
+        </div>
+      </form>
+    </div>
+
+    <div class="actions">
+      <div class="update-cancel-btn ui deny right labeled icon button">
+        取消<i class="remove icon"></i>
+      </div>
+      <div class="update-confirm-btn ui positive right labeled icon button">
+        保存<i class="checkmark icon"></i>
+      </div>
+    </div>
+
+  </div>
+
+
+{% endblock %}
